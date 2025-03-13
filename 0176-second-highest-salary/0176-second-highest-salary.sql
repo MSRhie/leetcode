@@ -1,12 +1,3 @@
-SELECT 
-    CASE
-        WHEN (SELECT COUNT(DISTINCT salary) FROM Employee) >= 2
-            THEN (
-                SELECT DISTINCT salary
-                FROM Employee
-                ORDER BY salary DESC
-                LIMIT 1
-                OFFSET 1 
-            )
-        ELSE NULL
-    END AS SecondHighestSalary
+SELECT DISTINCT MAX(salary) AS SecondHighestSalary
+  FROM Employee a
+ WHERE Salary< (SELECT MAX(salary) FROM Employee b WHERE b.salary > a.salary)
