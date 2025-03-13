@@ -1,3 +1,5 @@
+import pandas as pd
+
 def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
     # step 1. Converting recordDate to Datetime Type
     weather['recordDate'] = pd.to_datetime(weather['recordDate']) 
