@@ -14,8 +14,6 @@ with temp_delivery AS (
         ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date, customer_id) AS 'number_row'
     FROM Delivery
 )
-
-# ROUND(SUM(CASE WHEN order_finished = 'immediate' THEN 1 ELSE 0 END) / COUNT(order_finished), 2) * 100 AS #'immediate_percentage'
 SELECT ROUND(SUM(CASE WHEN order_finished = 'immediate' THEN 1 ELSE 0 END) / COUNT(order_finished) * 100, 2)  AS 'immediate_percentage'
 FROM temp_delivery
 WHERE number_row = 1
