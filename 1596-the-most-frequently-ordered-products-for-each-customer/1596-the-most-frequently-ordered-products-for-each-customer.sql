@@ -4,6 +4,7 @@
 -- 가장 빈번하게 > product_id가 count되어 가장 큰 값
 # 3) 결과 테이블은 최소 한번 이상 주문한 cusotmer_id별 product_id와 product_name가 결과여야 한다.
 # 4) any order로 결과를 내라.
+# 이해 O / 직풀 O
 SELECT customer_id, A.product_id, B.product_name
 FROM (
     SELECT
