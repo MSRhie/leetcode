@@ -1,5 +1,8 @@
 # 1) player_id별로 이틀이상 연속 로그인을 한 player의 수 를 구하고
 # 2) 1)에서 구한 수 / 전체 player 수인 fraction을 구해라.
+# 이해 O / 혼풀 O
+# 날짜가 하루 차이나고 DATEDIFF를 쓴 diff = 1 이여야하며
+# 최초일로부터 이틀 이상이므로, 로그인 하고 이틀만 지나면 분자로 들어가므로 ROW_NUMBER()를 쓴 count_row = 2이면 된다.
 WITH select_player AS
 (
 SELECT
