@@ -7,7 +7,7 @@
 # 3-2 요청 받은 사람(accepter_id)은 4 > requester_id가 있어야 행있음.
 # > 즉 requester_id에 3을 카운트 -> 1 / accepter_id 3 카운트 -> 2
 # > 총 3사람 
-
+# 이해O / 직풀 O
 WITH temp_table AS (
 SELECT requester_id AS id, COUNT(requester_id) AS cnt_id
 FROM RequestAccepted
