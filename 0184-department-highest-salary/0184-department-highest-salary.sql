@@ -1,4 +1,5 @@
 # 1) 각 부서별로 가장 높은 연봉을 받는 사람을 출력해라. (동일연봉이면 같이 출력)
+# 이해 O / 직풀 O
 WITH temp_employee AS (
 SELECT
     departmentId,
