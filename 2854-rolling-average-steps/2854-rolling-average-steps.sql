@@ -39,6 +39,6 @@ from (
     lag(steps_date, 2) over (partition by user_id order by steps_date) as two_dates_before
     from steps
 ) tmp
-where datediff(steps_date, two_dates_before) = 2
+where datediff(steps_date, two_dates_before) = 2 # 두날짜 차이는 DATEDIFF 조건으로 해결
 order by 1, 2
 ;
