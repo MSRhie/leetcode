@@ -8,7 +8,7 @@
 # > 예로 Chargebacks 테이블의 trans_id가 Transaction 테이블에 없을 수도 있음(반대경우도마찬가지)
 # >또한 Chargebacks 테이블의 trans_date가 Transaction 테이블에 없을 수도 있음(반대경우도마찬가지)
 # Chargebacks 테이블 별도로 집계를 내고, Transaction 테이블 별도로 집계를 낸 후 통합한다.
-# 이때 당연히 Transaction과 Chargebacks 테이블 서로간 집계변수가 없으므로 임의로 0을 생성해준다.
+# 이때 당연히 Transaction과 Chargebacks 테이블 서로간 집계변수가 없으므로 임의로 0을 생성해준다!
 WITH trans_agg AS
 (
 SELECT
