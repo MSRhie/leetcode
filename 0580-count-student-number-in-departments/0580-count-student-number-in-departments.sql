@@ -18,3 +18,4 @@ SELECT
 FROM Department AS A
 LEFT JOIN Student AS B ON A.dept_id = B.dept_id
 GROUP BY dept_name
+ORDER BY student_number DESC ,dept_name
