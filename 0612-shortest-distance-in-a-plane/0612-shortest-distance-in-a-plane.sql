@@ -1,5 +1,7 @@
 # Point2D테이블에서 가장 짧은 거리의 두점 사이의 거리를 구하고 2번째 자리에서 반올림해라
 # 이때 중복 점은 없다 -> 거리가 0인건 없다.
+# 이해 O / 직풀 O / 23분 소요
+# > CROSS JOIN에서 모든 경우의 수를 엮을시 ON 생략도 가능하다.
 SELECT
     MIN(shortest) AS shortest
 FROM
