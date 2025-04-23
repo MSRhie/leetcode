@@ -11,7 +11,7 @@
 # 2) student_number로 내림차순으로 정렬해라. 동점일 경우dept_name으로 알파벳순으로 정렬해라.
 
 # 없더라도 값이 나와야 함 > 해당 변수가 있는 테이블 기준 : Department기준
-
+# 이해 O / 직풀 O/ 9분
 SELECT
     A.dept_name,
     COUNT(B.dept_id) AS student_number
