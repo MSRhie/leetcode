@@ -15,6 +15,7 @@
 # 3) 팀에서 지면 0포인트를 받는다.(상대편 점수보다 점수가 낮을 경우)
 # 모든 매치 이후 각 팀마다 team_id, team_name와 num_points를 SELECT 해라. 
 # num_points별로 내림차순으로 정렬하고, 동점일경우 team_id별로 오름차순해라.
+# 이해 O / 직풀 O / 29분
 WITH ids AS(
 SELECT
     match_id,
