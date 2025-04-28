@@ -7,6 +7,7 @@
 # 2) id를 오름차순 기준으로 정렬해라.
 
 SELECT
+    DISTINCT
     viewer_id AS id
 FROM
 (
