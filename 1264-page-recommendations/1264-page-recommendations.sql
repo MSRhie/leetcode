@@ -27,4 +27,4 @@ SELECT
     DISTINCT
     page_id AS 'recommended_page'
 FROM base_user2_id
-WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1)
+WHERE (page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1)) AND page_id IS NOT NULL
