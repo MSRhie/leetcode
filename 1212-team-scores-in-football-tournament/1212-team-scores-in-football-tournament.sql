@@ -15,7 +15,7 @@
 # 3) 팀에서 지면 0포인트를 받는다.(상대편 점수보다 점수가 낮을 경우)
 # 모든 매치 이후 각 팀마다 team_id, team_name와 num_points를 SELECT 해라. 
 # num_points별로 내림차순으로 정렬하고, 동점일경우 team_id별로 오름차순해라.
-# 이해 O / 직풀 O / 29분
+# 이해 O / 직풀 O / 29분 > UNION ALL 에서 GROUPBY실수로 10분이상 까먹음
 # SUM(CASE WHEN~ )조건식일 때, 기준 변수를 잡고 (여깃ㄴ Teams의 team_id)이 team_id = host_team이거나 team_id = guest_team일때 조건으로 서로 다른 변수에 분산된 keyID를 통합하여 Point의 합계(SUM)을 계산할 수 있다.
 WITH ids AS(
 SELECT
