@@ -1,5 +1,8 @@
 #  Logs의 연속된 시작과 끝의 수를 구해라
 # 연속된 지점이 끝나는 지점이 end_id다.
+# 이해 O / 직풀 O / 20분
+# join key를 ROW_NUMBER로 만들어야함
+
 WITH base AS
 (
 SELECT
