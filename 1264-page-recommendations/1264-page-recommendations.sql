@@ -10,8 +10,8 @@
 # 중복없이 어떤 순서라든지 정렬해라
 # 이해 O / 직풀 O / 20분
 # FROM 절에서 ON이 조건에 따라 A.keyid_1, A.keyid_2로 변화 될때
-# > FROM (CASE WHEN 조건1 THEN keyid_1 WHEN 조건2 THEN keyid_2 AS key_id) AS A ~JOIN 테이블명 AS B 
-# ON A.key_id = B.user_id 로 조건에 따라 keyid 결합이 가능하다.
+# > FROM (SELECT CASE WHEN 조건1 THEN keyid_1 WHEN 조건2 THEN keyid_2 AS key_id FROM ~) AS A ~JOIN 테이블명 AS B 
+# ON A.key_id = B.user_id 로 조건에 따라 keyid를
 WITH base_user2_id AS(
 SELECT
     B.page_id
