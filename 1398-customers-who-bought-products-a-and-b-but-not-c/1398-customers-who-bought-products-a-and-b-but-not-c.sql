@@ -13,7 +13,7 @@ SELECT
 FROM Orders
 GROUP BY customer_id, product_name
 ) A
-WHERE sum = 2
+WHERE sum = 2 AND (product_name = 'A' OR product_name = 'B')
 )
 SELECT
     DISTINCT
