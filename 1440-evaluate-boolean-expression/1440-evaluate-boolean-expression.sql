@@ -1,5 +1,7 @@
 # Write your MySQL query statement below
 # Expressions 테이블의 조건에 맞게 Bloon을 생성하라
+# 이해 O / 직풀 O/ 16분
+# IF문과 CASE WHEN의 비교연산자 >, <, = 의 반환값은 True, False가 아니라 1,0으로 반환한다. < 처음 앎.
 SELECT
     A.left_operand,
     A.operator,
