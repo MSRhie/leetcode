@@ -8,12 +8,11 @@ SELECT
 FROM(
 SELECT
     A.*,
-    CASE WHEN operator LIKE '>' THEN B.name > C.name
-        WHEN operator LIKE '<' THEN B.name < C.name
-        WHEN operator LIKE '=' THEN B.name = C.name
+    CASE WHEN operator LIKE '>' THEN B.value > C.value
+        WHEN operator LIKE '<' THEN B.value < C.value
+        WHEN operator LIKE '=' THEN B.value = C.value
     END AS 'value'
 FROM Expressions AS A
 LEFT JOIN Variables AS B ON A.left_operand = B.name
 LEFT JOIN Variables AS C ON A.right_operand = C.name
 ) A
-
