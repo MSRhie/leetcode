@@ -3,8 +3,7 @@
 # 전화를 건사람 또는 받은사람이 있다면 그 사람들의 평균값 > 전체 전화 통화한 사람들의 평균
 # 이해 X /직풀 X / 40분
 SELECT
-*
-# co.name AS country
+    co.name AS country
 FROM
  person p
  JOIN
