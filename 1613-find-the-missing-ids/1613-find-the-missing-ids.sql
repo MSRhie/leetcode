@@ -2,7 +2,7 @@
 # customer_id는 100을 초과하지 않을 것이다.
 # ids로 오름차순으로 정렬해라
 # 이해 X 직풀 X /10분 포기
-# 아래 RECURSIVE 임시 테이블 생성
+# 아래 RECURSIVE 임시 테이블 생성 정리해둘것.
 WITH RECURSIVE id_seq AS (
     SELECT 1 as continued_id
     UNION 
