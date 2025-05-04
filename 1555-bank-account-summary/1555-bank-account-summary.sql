@@ -2,6 +2,7 @@
 # credit은 거래 수행이후의 잔고이다.
 # Credit_limit_brached로 credit_limit을 확인할 수 있다.
 # 이해 O / 직풀 O / 40분 (시간 초과)
+# IFNULL() 함수 / # user_id가 어떠한 행위를 하거나 당했을 때 (user_id기준)
 -- WITH minus AS (
 -- SELECT
 --     paid_by AS 'minus_id',
