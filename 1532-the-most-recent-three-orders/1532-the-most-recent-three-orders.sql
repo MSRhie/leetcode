@@ -1,7 +1,7 @@
 # 가장 최근 각 유저들이 3번주문한 것을 찾아라. 만약 유저들이 3번이하로 주문하면, 그들의 주문들을 모두 리턴해라.
 
 # customer_name으로 오름차순으로해라. customer_id별로., 동점ㅇ이면 order_date로 내림차순해라
-
+# 이해 O / 직풀 O / 13분
 SELECT
     name AS customer_name,
     A.customer_id,
