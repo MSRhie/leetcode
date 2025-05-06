@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/managers-with-at-least-5-direct-reports/">570. Managers with at Least 5 Direct Reports</a></h2><h3>Medium</h3><hr><p>Table: <code>Employee</code></p>
+<h2><a href="https://leetcode.com/problems/managers-with-at-least-5-direct-reports/?envType=problem-list-v2&envId=2sajt505">570. Managers with at Least 5 Direct Reports</a></h2><h3>Medium</h3><hr><p>Table: <code>Employee</code></p>
 
 <pre>
 +-------------+---------+
