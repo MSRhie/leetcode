@@ -15,3 +15,7 @@ SELECT
 FROM key_table A
 LEFT JOIN Products B ON A.product_id = B.product_id
 AND (A.product_id, B.change_date) IN (SELECT product_id, MAX(change_date) FROM Products WHERE change_date <= '2019-08-16' GROUP BY product_id)
+
+# 1. WITH 문 : 유닉키 key_table 만듦
+# 2. FROM 문 : key_table과 Products 테이블을 key로 join 과 동시에 id와 date가 2019-08-16전인 값들 중 가장  최근값만 결합함.
+# 3. SELECT 문 : IFNULL()로 NULL일 경우 10 반환
