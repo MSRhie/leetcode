@@ -2,6 +2,7 @@
 # 연속 조건 : id값이 연속적일 때, 이전값과 다음값이 같음. 같은 경우가 2번 이상 반복됨.
 
 SELECT
+    DISTINCT
     num AS ConsecutiveNums 
 FROM
 (
