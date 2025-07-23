@@ -5,9 +5,9 @@ WITH make_rank AS
 (
     SELECT
         *,
-        DENSE_RANK() OVER (PARTITION BY product_id ORDER BY change_date DESC) AS rank_id
+        DENSE_RANK() OVER (PARTITION BY product_id ORDER BY change_date DESC) AS rank_id # 2) window 함수 돌아감
     FROM Products
-    WHERE change_date <= '2019-08-16'
+    WHERE change_date <= '2019-08-16' # 1) where 문부터 적용되고
 )
 SELECT
     DISTINCT
@@ -21,5 +21,7 @@ LEFT OUTER JOIN (
                 WHERE rank_id = 1
                 ) B
 ON A.product_id = B.product_id
+
+# 제한 시간내 못품
 # 알게된 것
 # 1. window 함수는 가장 마지막에 돌아감 > RANK에 영향을주는 ORDER BY를 WHERE문으로 줄때 해당 쿼리 내 삽입할 것
