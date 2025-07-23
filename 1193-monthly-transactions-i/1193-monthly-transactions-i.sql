@@ -15,3 +15,6 @@ SELECT
     SUM(IF(state = 'approved', amount, 0)) AS approved_total_amount
 FROM Transactions
 GROUP BY SUBSTR(trans_date, 1, 7), country
+
+# 알게된 것
+# 1. if문을 사용할때 반드시 IF(condition, True, False) 각 항들을 다 명시해줘야 한다.
