@@ -1,13 +1,17 @@
-# 1. To find for each month, and contry -> GROUP BY month or Contry
-# 2. the number of transactions and their total amount,
-# 3. the number of approved transactions and their total monut
+# 각달과 나라들에대해 총 거래양, 승인된 거래들의 수와 그들의 총 양을 쿼리해라
 
-SELECT 
-    DATE_FORMAT(trans_date, "%Y-%m") AS month,
+# 모두 GROP GY month yyy-mm, country
+# trans_count : COUNT(id)
+# approved_count : COUNT(id) IF state = approved
+# trans_total_amount : SUM(amount)
+# approved_total_amount : SUM(amount) IF state = approved
+
+SELECT
+    SUBSTR(trans_date, 1, 7) AS month,
     country,
     COUNT(id) AS trans_count,
-    SUM(CASE WHEN state = 'approved'  THEN 1 ELSE 0 END) AS approved_count,
+    SUM(IF(state = 'approved', 1, 0)) AS approved_count,
     SUM(amount) AS trans_total_amount,
-    SUM(CASE WHEN state = 'approved' THEN amount ELSE 0 END) AS approved_total_amount
+    SUM(IF(state = 'approved', amount, 0)) AS approved_total_amount
 FROM Transactions
-GROUP BY month,country
+GROUP BY SUBSTR(trans_date, 1, 7), country
