@@ -13,6 +13,7 @@ SELECT MAX(Salary) AS 'SecondHighestSalary'
 FROM temp
 WHERE rank_salary = 2
 
+# 제한시간 20분 내 못품
 # 알아간 것 #
 # 1. 집계함수는 값이 없을 경우 자동으로 null을 출력한다.
 # 2. DENSE_RANK()와 RANK()의 차이 복습
