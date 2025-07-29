@@ -1,26 +1,30 @@
-# 1. id가 2번째마다  학생들 id seat의 자리를 뒤바꿔라.
-# 2. 만약 학생수가 홀수면, 마지막 학생의 id는 바뀌지 않는다.
-# 3. id의 오름차순으로 결과 테이블을 만들어라.
-# 문제 이해 o / 혼풀 o /
-# CASE WHEN 은 각 행마다 True, False를 반환하므로 비교대상값을 모든 행에 새로운 변수로 만들어주고 비교해야한다. (max_id)
-WITH temp_seat AS 
+# 두번 연속된 각 학생들의 seat id의 위치를 바꿔라. 만약 학생 번호가 홀수면, swapp 하지 않는다.
+# id가 오름차순으로 리턴해라
+
+SELECT
+    id,
+    IF(student_A IS NULL, student, student_A) AS student 
+FROM
 (
     SELECT
         id,
-        student AS student2,
-        (SELECT MAX(id) FROM Seat) AS max_id,
-        LAG(student) OVER (ORDER BY id) AS 'lag_student',
-        LEAD(student) OVER (ORDER BY id) AS 'lead_student'
-    FROM Seat
-)
-SELECT
-    id,
-    CASE
-        WHEN (max_id % 2 <> 0) AND lead_student IS NULL
-            THEN student2
-        WHEN id % 2 = 0
-            THEN lag_student
-        WHEN id % 2 <> 0
-            THEN lead_student
-    END AS 'student'
-FROM temp_seat
+        student,
+        IF(odd_flag=1 , LEAD_student, Lag_student) AS student_A
+
+    FROM 
+    (
+        SELECT
+            *,
+            SUM(odd_flag) OVER (ORDER BY id) AS sum_odd_flag,
+            LAG(student) OVER (ORDER BY id) AS Lag_student,
+            LEAD(student) OVER (ORDER BY id) AS LEAD_student
+        FROM(
+            SELECT
+                *,
+                IF(id % 2 = 0, 0, 1) AS odd_flag
+            FROM Seat
+            ) A
+    ) A
+    #GROUP BY sum_odd_flag
+) A
+ORDER BY id
