@@ -18,3 +18,7 @@ FROM
     FROM Sales
 ) A
 WHERE product_rank = 1
+
+
+# 제한 시간안에 품
+# 단순한 문제
