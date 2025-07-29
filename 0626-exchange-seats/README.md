@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/exchange-seats/">626. Exchange Seats</a></h2><h3>Medium</h3><hr><p>Table: <code>Seat</code></p>
+<h2><a href="https://leetcode.com/problems/exchange-seats">626. Exchange Seats</a></h2><h3>Medium</h3><hr><p>Table: <code>Seat</code></p>
 
 <pre>
 +-------------+---------+
