@@ -1,19 +1,20 @@
-# 1) Sales 테이블은 특정 년의 제품 product_id의 판매를 보여줌
-# 2) Product 테이블은 각 제품의 이름을 보여줌
-# 3) product id, year, 제품이 팔린 첫해의 가격(price)
-# 풀이x 이해x > 답지참고
-# 내가 이해한 것 : 제품 아이디별 해당연도에 가장 처음 팔린 행 하나만 가져오도록 작성
-# 잘못된 것  : 제품 아이디별 해당 연도에 가장 처음 판매된다 했을 때, 한해에 하나의 제품이 여러 판매건이 있을 경우
-# 한건만 가져오게 됨 > 
-with temp_sales AS
-(
+# sales_id, year 가 PK
+# product_id 가 FK
+# 1. 같은 해에 여러개의 제품 판매가 가능함.
+# 각 재품이 첫번째 팔린 것을 찾아라
+# 1. 각 product_id, year가 Sale 테이블에 있음.
+# 모든 판매 엔트리들을 리턴해라
+
 SELECT
-    A.product_id,
-    A.year AS 'first_year',
-    A.quantity, A.price,
-    DENSE_RANK() OVER (PARTITION BY product_id ORDER BY product_id, year) AS 'row_rank'
-FROM Sales AS A
-)
-SELECT DISTINCT product_id, first_year, quantity, price
-FROM temp_sales
-WHERE row_rank = 1
+    product_id,
+    year AS first_year,
+    quantity,
+    price
+FROM
+(
+    SELECT
+        *,
+        DENSE_RANK() OVER (PARTITION BY product_id ORDER BY year) AS product_rank
+    FROM Sales
+) A
+WHERE product_rank = 1
