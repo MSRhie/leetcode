@@ -1,20 +1,19 @@
-# 1. confirmed messages divided by
-#  1) total number of requested confirmation messages
-#  2) user that didn't requet any confirmation messages is 0
-# 2. Round the confirmatio nrate to TWO DECIMAL places.
+# 1. 확인 비율 : 한 유저당 confirmed 메시지의 수 / 총 요청받았던 확인 메시지의 수
+# 2. 확인 비율에서 요청이 없을 경우 0이다.
+# 3. 두번째 자리에서 반올림.
 
-with confirm_user AS
-(   SELECT  ROUND(SUM_confirm / (SUM_timeout + SUM_confirm), 2) AS con_rate,
-            C.user_id
-    FROM (
-    SELECT
-        SUM(CASE WHEN action = 'confirmed' THEN 1 ELSE 0 END) AS SUM_confirm , 
-        SUM(CASE WHEN action = 'timeout' THEN 1 ELSE 0 END) AS SUM_timeout ,
-        user_id
-    FROM confirmations
-    GROUP BY user_id
-    ) AS C 
-)
-SELECT DISTINCT A.user_id, COALESCE(con_rate, ROUND(0, 2)) AS confirmation_rate 
-FROM Signups AS A
-LEFT JOIN confirm_user AS B ON A.user_id = B.user_id
+SELECT
+    user_id,
+    ROUND(SUM(flag_action) / total_count, 2) AS confirmation_rate
+FROM (
+SELECT
+    S.user_id,
+    action,
+    IF(action = 'timeout' OR action IS NULL, 0, 1) AS 'flag_action',
+    SUM(1) OVER (PARTITION BY S.user_id) AS 'total_count'
+FROM Signups S
+LEFT JOIN Confirmations C
+ON S.user_id = C.user_id
+) A
+GROUP BY user_id
+ORDER BY user_id
