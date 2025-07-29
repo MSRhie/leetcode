@@ -3,6 +3,7 @@
 # 3. 두번째 자리에서 반올림.
 
 SELECT
+
     user_id,
     ROUND(SUM(flag_action) / total_count, 2) AS confirmation_rate
 FROM (
@@ -10,10 +11,14 @@ SELECT
     S.user_id,
     action,
     IF(action = 'timeout' OR action IS NULL, 0, 1) AS 'flag_action',
-    SUM(1) OVER (PARTITION BY S.user_id) AS 'total_count'
+    SUM(1) OVER (PARTITION BY S.user_id ) AS 'total_count'
 FROM Signups S
 LEFT JOIN Confirmations C
 ON S.user_id = C.user_id
 ) A
 GROUP BY user_id
 ORDER BY user_id
+
+# 제 시간안에 품
+# 알게된 것
+# 1. SUM() OVER (PARTIION BY Id) 를 할경우 ID 별 행 갯수의 총 count를 리턴 해줌
