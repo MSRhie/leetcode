@@ -19,5 +19,7 @@ WHERE cnt_product = (
                         FROM Product
                     )
 
-
+# 문제 품
+# 복습 한 것
+# 1. where문의 스칼라 값 매칭으로 조건걸기
 
