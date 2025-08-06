@@ -18,3 +18,6 @@ SELECT
 FROM Delivery
 ) A
 WHERE customer_id_rank = 1
+
+# 푼시간 13분
+# 배운내용 없음
