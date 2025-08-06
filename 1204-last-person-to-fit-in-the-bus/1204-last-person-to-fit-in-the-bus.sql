@@ -15,3 +15,5 @@ FROM Queue
 WHERE sum_weight <= 1000
 ORDER BY sum_weight DESC
 LIMIT 1
+
+# 푼시간 6분 30초
