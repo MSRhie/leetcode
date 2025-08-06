@@ -1,23 +1,17 @@
-# 1) 1000 킬로그램의 무게재한 버스가 있다.
-# 2) 무게가 초과되어 버스에 탑승불가한 마지막 사람의 person_name을 출력해라.
-# - 첫번째 사람부터 무게가 초과될 수 있다.
-# - turn이 탑승 순서이다.
-# 누적 합
-WITH sum_table AS
+# 버스에 타기위해 기다리는 사람들의 수이다.
+# 버스는 1000 킬로그램 제한이있음
+# 몇 사람은 버스 못탐
+# 무게 초과없이 버스에 핏할 수 있는 마지막 사람의 이름을 찾아라.
+
+SELECT
+    person_name
+FROM
 (
 SELECT
-    turn,
-    person_name,
+    *,
     SUM(weight) OVER (ORDER BY turn) AS 'sum_weight'
 FROM Queue
-ORDER BY turn
-)
-SELECT A.person_name
-FROM (
-SELECT person_name,
-        sum_weight
-FROM sum_table
+) A
 WHERE sum_weight <= 1000
-) AS A
-ORDER BY A.sum_weight DESC
+ORDER BY sum_weight DESC
 LIMIT 1
