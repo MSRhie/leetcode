@@ -1,19 +1,20 @@
-# 1) player_id별로 이틀이상 연속 로그인을 한 player의 수 를 구하고
-# 2) 1)에서 구한 수 / 전체 player 수인 fraction을 구해라.
-# 이해 O / 혼풀 O
-# 날짜가 하루 차이나고 DATEDIFF를 쓴 diff = 1 이여야하며
-# 최초일로부터 이틀 이상이므로, 로그인 하고 이틀만 지나면 분자로 들어가므로 ROW_NUMBER()를 쓴 count_row = 2이면 된다.
-WITH select_player AS
-(
-SELECT
-    player_id,
-    event_date,
-    DATEDIFF(event_date, LAG(event_date) OVER (PARTITION BY player_id ORDER BY player_id, event_date)) AS 'diff',
-    ROW_NUMBER() OVER (PARTITION BY player_id ORDER BY player_id, event_date) AS 'count_row'
-FROM Activity
-)
-SELECT 
-    ROUND(COUNT(DISTINCT player_id) / (SELECT COUNT(DISTINCT player_id) FROM select_player),2) AS fraction
-FROM select_player
-WHERE diff = 1 AND count_row = 2
+-- -- # 첫번째 로그인 후 당일 이후에 다시 한번로그인한 비율을 총 플레이어의 수로 나눠서 구해라.
 
+SELECT
+  ROUND(
+    COUNT(A1.player_id)
+    / (SELECT COUNT(DISTINCT A3.player_id) FROM Activity A3)
+    , 2) AS fraction
+FROM
+  Activity A1
+WHERE 
+  (A1.player_id, DATE_SUB(A1.event_date, INTERVAL 1 DAY)) IN (
+    SELECT
+      A2.player_id,
+      MIN(A2.event_date)
+    FROM
+      Activity A2
+    GROUP BY
+      A2.player_id
+  );
+  # 날짜가 하루 차이씩 나면서, 같은 player ID 일때
