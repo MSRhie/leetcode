@@ -17,4 +17,5 @@ WHERE
     GROUP BY
       A2.player_id
   );
+  # 시간 오버
   # 날짜가 하루 차이씩 나면서, 같은 player ID 일때
