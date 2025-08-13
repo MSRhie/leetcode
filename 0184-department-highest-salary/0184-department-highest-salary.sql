@@ -12,3 +12,5 @@ WHERE (departmentId, salary) IN (
     FROM Employee
     GROUP BY departmentId
 )
+
+# 문제 품 / 시간 못젬
