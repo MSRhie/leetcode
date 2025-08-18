@@ -1,21 +1,30 @@
-# 1) Orders 테이블은 어떠한 고객도 동일한 제품을 하루에 하나이상 주문하지 않음.
-# 2) 고객별로 가장 빈번하게 주문된 제품들을 찾아라
--- 하나 주문 했다면 한 고객에 여러 제품이 여러 행에 걸쳐서 출력됨.
--- 가장 빈번하게 > product_id가 count되어 가장 큰 값
-# 3) 결과 테이블은 최소 한번 이상 주문한 cusotmer_id별 product_id와 product_name가 결과여야 한다.
-# 4) any order로 결과를 내라.
-# 이해 O / 직풀 O
-SELECT customer_id, A.product_id, B.product_name
-FROM (
+# 각 고객들에서 가장 빈번하게 주문한 제품들을 찾아라
+# 이 결과는 적어도 하나이상 주문한 customer_id별로 product_id, name을 포함한다.
+
+# 단, 같은날 하나 이상 동일한 물건을 주문하지 않았다.
+
+WITH temp_data AS
+(
     SELECT
-    customer_id,
-    product_id,
-    COUNT(product_id) AS cnt_product_id,
-    MAX(COUNT(product_id)) OVER (PARTITION BY customer_id) AS 'cnt_max'
+        customer_id,
+        product_id,
+        COUNT(product_id) OVER(PARTITION BY customer_id, product_id) AS cnt_customer_id
     FROM Orders
-    GROUP BY customer_id, product_id
-) AS A
-LEFT JOIN Products AS B ON A.product_id = B.product_id
-WHERE cnt_product_id = cnt_max
-
-
+)
+SELECT
+    DISTINCT
+    A.customer_id,
+    p.product_id,
+    p.product_name
+FROM temp_data A
+LEFT JOIN Customers c
+ON A.customer_id = c.customer_id
+LEFT JOIN Products p
+ON A.product_id = p.product_id
+WHERE (A.customer_id, cnt_customer_id) IN (
+    SELECT 
+        customer_id, MAX(cnt_customer_id)
+    FROM temp_data
+    GROUP BY customer_id
+)
+# 5분 초과 풀이 완
