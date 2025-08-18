@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/the-most-frequently-ordered-products-for-each-customer/">1596. The Most Frequently Ordered Products for Each Customer</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
+<h2><a href="https://leetcode.com/problems/the-most-frequently-ordered-products-for-each-customer">1596. The Most Frequently Ordered Products for Each Customer</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
 
 <pre>
 +---------------+---------+
