@@ -1,27 +1,29 @@
-# 1. 2019-08-16 기준 이전 날짜 필터 -> 해당 날짜의 product id set A
-# 2. 전체 product들 중 16일 가격 변동 이력이 있는 set A외 product id set B
-# 3. 1와 2외의 product_id가 set C
-WITH make_rank AS
+# 기본 가격이 10
+# 2019-08-16 기준으로 product_id별 가장 빠른 날짜의new_price를 가져와야 함
+
+WITH new_price_df AS
 (
+SELECT
+    *
+FROM Products
+WHERE (product_id, change_date) IN (
     SELECT
-        *,
-        DENSE_RANK() OVER (PARTITION BY product_id ORDER BY change_date DESC) AS rank_id # 2) window 함수 돌아감
+        product_id, MAX(change_date) AS max_change_date
     FROM Products
-    WHERE change_date <= '2019-08-16' # 1) where 문부터 적용되고
+    WHERE change_date <= '2019-08-16'
+    GROUP BY product_id
 )
+), ex_id AS
+(
 SELECT
     DISTINCT
-    IF(B.product_id IS NULL, A.product_id, B.product_id) AS product_id,
-    IF(B.new_price IS NULL, 10, B.new_price) AS price 
-FROM Products A 
-LEFT OUTER JOIN (
-                SELECT
-                    *
-                FROM make_rank
-                WHERE rank_id = 1
-                ) B
-ON A.product_id = B.product_id
-
-# 제한 시간내 못품
-# 알게된 것
-# 1. window 함수는 가장 마지막에 돌아감 > RANK에 영향을주는 ORDER BY를 WHERE문으로 줄때 해당 쿼리 내 삽입할 것
+    product_id,
+    10 AS ex_price 
+FROM Products
+)
+SELECT
+    e.product_id,
+    IF(n.new_price IS NULL, ex_price, new_price) AS price
+FROM ex_id AS e
+LEFT JOIN new_price_df AS n
+ON e.product_id = n.product_id
