@@ -1,22 +1,26 @@
-# 1. amount 변수의 7일간의 이동평균을 계산해라. average_amount
-# 2. Visited_on으로 오름차순으로 계산해라.
-# 3. 이해 O / 스스로풀이 x 
-
-WITH temp_customer AS
+# 최소한 한명이상의 고객들이 온다
+# 7일 간격의 이동평균을 구해라. (현재일 + 6일)
+WITH sum_amount_DF AS
 (
+    SELECT 
+        visited_on,
+        amount,
+        SUM(amount) AS sum_amount,
+        SUM(1) OVER(ORDER BY visited_on) AS ID
+    FROM Customer
+    GROUP BY visited_on
+)
 SELECT
     visited_on,
-    SUM(amount) AS daily_amount
-FROM Customer
-GROUP BY visited_on
-)
-SELECT visited_on, amount, ROUND(average_amount, 2) AS average_amount
+    amount,
+    average_amount
 FROM (
-SELECT 
+SELECT
+    ID,
     visited_on,
-    SUM(daily_amount) OVER (ORDER BY visited_on ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS 'amount',
-    AVG(daily_amount) OVER (ORDER BY visited_on ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS 'average_amount',
-    COUNT(visited_on) OVER (ORDER BY visited_on ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS 'cnt'
-FROM temp_customer AS A
-) AS C
-WHERE cnt = 7
+    SUM(sum_amount) OVER (ORDER BY visited_on ROWS BETWEEN 6 PRECEDING AND CURRENT ROW ) AS amount,
+    ROUND(AVG(sum_amount) OVER(ORDER BY visited_on ROWS BETWEEN 6 PRECEDING AND CURRENT ROW ), 2) AS average_amount
+FROM sum_amount_DF
+ORDER BY visited_on
+) A
+WHERE ID >= 7
