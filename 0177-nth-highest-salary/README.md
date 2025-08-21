@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/nth-highest-salary/">177. Nth Highest Salary</a></h2><h3>Medium</h3><hr><p>Table: <code>Employee</code></p>
+<h2><a href="https://leetcode.com/problems/nth-highest-salary">177. Nth Highest Salary</a></h2><h3>Medium</h3><hr><p>Table: <code>Employee</code></p>
 
 <pre>
 +-------------+------+
@@ -13,7 +13,7 @@ Each row of this table contains information about the salary of an employee.
 
 <p>&nbsp;</p>
 
-<p>Write a solution to find the <code>n<sup>th</sup></code> highest salary from the <code>Employee</code> table. If there is no <code>n<sup>th</sup></code> highest salary, return&nbsp;<code>null</code>.</p>
+<p>Write a solution to find the <code>n<sup>th</sup></code> highest <strong>distinct</strong> salary from the <code>Employee</code> table. If there are less than <code>n</code> distinct salaries, return&nbsp;<code>null</code>.</p>
 
 <p>The result format is in the following example.</p>
 
