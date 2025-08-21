@@ -5,8 +5,8 @@ def monthly_transactions(transactions: pd.DataFrame) -> pd.DataFrame:
         transactions
         .assign(
             month = lambda d: pd.to_datetime(d['trans_date']).dt.strftime('%Y-%m'),
-            is_approved = lambda d: (d['state'] == 'approved').astype(int), # 1, 0으로 변환
-            amt_approved = lambda d: d['amount'].where(d['state'] == 'approved', 0)
+            Is_approved = lambda d: (d['state'] == 'approved').astype(int),
+            sum_approved_amount = lambda d: d['amount'].where(d['state'] == 'approved', 0)
         )
     )
     
@@ -15,12 +15,10 @@ def monthly_transactions(transactions: pd.DataFrame) -> pd.DataFrame:
         .groupby(['month', 'country'], dropna=False, as_index=False)
         .agg(
             trans_count = ('id', 'count'),
-            approved_count = ('is_approved', 'sum'),
+            approved_count = ('Is_approved', 'sum'),
             trans_total_amount = ('amount', 'sum'),
-            approved_total_amount = ('amt_approved', 'sum')
+            approved_total_amount = ('sum_approved_amount', 'sum')
         )
-        .sort_values(['month', 'country'])
-        .reset_index(drop=True)
     )
     
     return out
