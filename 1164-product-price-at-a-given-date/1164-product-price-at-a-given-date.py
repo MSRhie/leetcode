@@ -9,7 +9,7 @@ def price_at_given_date(products: pd.DataFrame) -> pd.DataFrame:
     query_products = (
         products
         .assign(date = lambda d: pd.to_datetime(d['change_date']))
-        .loc[lambda d: d['date'].le(cutoff)]
+        .loc[lambda d: d['date'] <= cutoff]
         .sort_values(['product_id', 'date'], ascending = [True, False])
         .drop_duplicates(['product_id'], keep='first')
     )
