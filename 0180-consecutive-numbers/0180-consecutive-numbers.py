@@ -1,6 +1,17 @@
 import pandas as pd
 
 def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
-    s = logs.sort_values('id')['num']             # ① id 기준 정렬
-    mask = s.eq(s.shift(1)) & s.eq(s.shift(2))    # ② 같은 값이 3행 연속인지
-    return s[mask].drop_duplicates().to_frame('ConsecutiveNums')
+    result = (
+        logs
+        .sort_values(['id'])['num'].reset_index()
+        .assign(
+            one_lag_num = lambda d: d['num'].shift(1),
+            two_lag_num = lambda d: d['num'].shift(2)
+            )
+        .query('(num == one_lag_num) & (num == two_lag_num)')
+        .loc[:, ['num']]
+        .rename(columns={'num' : 'ConsecutiveNums'})
+        .drop_duplicates('ConsecutiveNums')
+    )
+    
+    return result
