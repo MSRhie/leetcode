@@ -14,8 +14,6 @@ def exchange_seats(seat: pd.DataFrame) -> pd.DataFrame:
         .assign(id = lambda d: d['id'] + 1)
     )
 
-    id_max = odd_result['id'].max()
-
     result = (
         pd.concat([even_result, odd_result])
         .sort_values(['id'])
