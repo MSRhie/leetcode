@@ -11,7 +11,7 @@ def immediate_food_delivery(delivery: pd.DataFrame) -> pd.DataFrame:
             imm_cnt = lambda d: np.where(d['order_date'] == d['customer_pref_delivery_date'], 1, 0)
         )
         .pipe(lambda d: pd.DataFrame({
-                                    'immediate_percentage': [round(mean(d['imm_cnt'])*100,2)]
+                                    'immediate_percentage': [round(mean(d['imm_cnt']) * 100, 2)]
                                     })
         )
         
