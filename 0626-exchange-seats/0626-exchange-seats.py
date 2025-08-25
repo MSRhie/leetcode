@@ -18,6 +18,7 @@ def exchange_seats(seat: pd.DataFrame) -> pd.DataFrame:
         pd.concat([even_result, odd_result])
         .sort_values(['id'])
         .assign(id = lambda d: np.where(d['id'] == d['id'].max(), len(d), d['id']))
+        # np.where 또는 .loc 으로 해결
     )
 
     return result
