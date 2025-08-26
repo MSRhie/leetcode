@@ -23,7 +23,12 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
     )
 
     # 유저별로 하루 차이 여부 확인
-    user_flags = activity.groupby("player_id")["is_diff_one"].max()
+    user_flags = (
+        activity
+            .groupby("player_id")["is_diff_one"]
+            .any()      # 하루 차이 있으면 True, 아니면 False
+            .astype(int) # True/False → 1/0
+    )
 
     # fraction
     fraction = round(user_flags.sum() / user_flags.count(), 2)
