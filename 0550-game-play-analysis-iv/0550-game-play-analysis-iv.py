@@ -10,11 +10,9 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         .sort_values(['player_id','event_date'])
         .drop_duplicates(['player_id','event_date'])
         .assign(
-                num = 1,
-                id_cnt = lambda d: d.groupby('player_id')['num'].cumsum()
+                id_cnt = lambda d: d.groupby('player_id').cumcount() + 1
         )
         .query('id_cnt <= 2')
-        .drop(['num', 'id_cnt'], axis=1)
     )
 
     # 하루 차이 여부 계산
