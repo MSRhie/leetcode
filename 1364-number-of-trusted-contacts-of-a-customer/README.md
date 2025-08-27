@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/number-of-trusted-contacts-of-a-customer/">1364. Number of Trusted Contacts of a Customer</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
+<h2><a href="https://leetcode.com/problems/number-of-trusted-contacts-of-a-customer">1364. Number of Trusted Contacts of a Customer</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
 
 <pre>
 +---------------+---------+
