@@ -4,7 +4,7 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
     result = (
         employee
         .drop_duplicates('salary')
-        .assign(rank = lambda d: d['salary'].rank(method = 'min', ascending = False))
+        .assign(rank = lambda d: d['salary'].rank(method='dense', ascending = False))
         .query("rank == @N")
         .loc[:, ['salary']]
         .rename(columns = {'salary' : 'getNthHighestSalary({})'.format(N)})
