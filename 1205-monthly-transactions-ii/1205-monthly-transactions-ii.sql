@@ -4,6 +4,7 @@
 # 모든 0을 가진 컬럼들은 무시해라.
 # 결과테이블은 any order다.
 # 이해O/ 직풀 X 고민 2시간 / 
+# 아래는 풀이 참고
 # Key 정보를 두개가진 테이블이 있고, key정보가 상대 테이블에 있을지도, 없을지도 모르는 상황일때
 # > 예로 Chargebacks 테이블의 trans_id가 Transaction 테이블에 없을 수도 있음(반대경우도마찬가지)
 # >또한 Chargebacks 테이블의 trans_date가 Transaction 테이블에 없을 수도 있음(반대경우도마찬가지)
