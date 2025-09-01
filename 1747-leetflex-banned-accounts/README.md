@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/leetflex-banned-accounts/">1747. Leetflex Banned Accounts</a></h2><h3>Medium</h3><hr><p>Table: <code>LogInfo</code></p>
+<h2><a href="https://leetcode.com/problems/leetflex-banned-accounts/?envType=problem-list-v2&envId=2sajt505">1747. Leetflex Banned Accounts</a></h2><h3>Medium</h3><hr><p>Table: <code>LogInfo</code></p>
 
 <pre>
 +-------------+----------+
