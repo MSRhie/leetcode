@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/tree-node/">608. Tree Node</a></h2><h3>Medium</h3><hr><p>Table: <code>Tree</code></p>
+<h2><a href="https://leetcode.com/problems/tree-node">608. Tree Node</a></h2><h3>Medium</h3><hr><p>Table: <code>Tree</code></p>
 
 <pre>
 +-------------+------+
