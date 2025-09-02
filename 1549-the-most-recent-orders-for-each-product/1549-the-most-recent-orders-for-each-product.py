@@ -6,7 +6,7 @@ def most_recent_orders(customers: pd.DataFrame, orders: pd.DataFrame, products: 
     
     recent_order = (
         orders
-        .sort_values(['product_id', 'order_date'], ascending=False)
+        #.sort_values(['product_id', 'order_date'], ascending=False)
         .assign(
             max_order_date = lambda d: d.groupby('product_id')['order_date'].transform('max')
         )
