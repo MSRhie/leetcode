@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/game-play-analysis-iii/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D">534. Game Play Analysis III</a></h2><h3>Medium</h3><hr><p>Table: <code>Activity</code></p>
+<h2><a href="https://leetcode.com/problems/game-play-analysis-iii">534. Game Play Analysis III</a></h2><h3>Medium</h3><hr><p>Table: <code>Activity</code></p>
 
 <pre>
 +--------------+---------+
