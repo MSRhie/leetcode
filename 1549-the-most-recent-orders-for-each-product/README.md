@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/the-most-recent-orders-for-each-product/">1549. The Most Recent Orders for Each Product</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
+<h2><a href="https://leetcode.com/problems/the-most-recent-orders-for-each-product">1549. The Most Recent Orders for Each Product</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
 
 <pre>
 +---------------+---------+
