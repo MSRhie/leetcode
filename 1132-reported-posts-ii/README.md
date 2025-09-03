@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/reported-posts-ii/">1132. Reported Posts II</a></h2><h3>Medium</h3><hr><p>Table: <code>Actions</code></p>
+<h2><a href="https://leetcode.com/problems/reported-posts-ii">1132. Reported Posts II</a></h2><h3>Medium</h3><hr><p>Table: <code>Actions</code></p>
 
 <pre>
 +---------------+---------+
