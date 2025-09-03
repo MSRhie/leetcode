@@ -7,20 +7,17 @@ def get_the_question(survey_log: pd.DataFrame) -> pd.DataFrame:
 
     result_agg = (
         survey_log
-        .assign(
-            is_answer = lambda d: np.where(d['action'] == 'answer', 1, 0),
-            is_show = lambda d: np.where(d['action'] == 'show', 1, 0)
-        )
         .groupby('question_id', as_index=False)
         .agg(
-            answer_sum = ('is_answer', 'sum'),
-            show_sum = ('is_show', 'sum'),
-        )
-        .assign(
-            summary = lambda d: d['answer_sum']/d['show_sum']
+            summary = ('action', lambda s: (s == 'answer').sum() / (s == 'show').sum())
         )
         .sort_values(['summary', 'summary'], ascending=[False, True])
         .head(1)[['question_id']]
         .rename(columns={'question_id':'survey_log'})
     )
     return result_agg
+
+        #     .assign(
+        #     is_answer = lambda d: np.where(d['action'] == 'answer', 1, 0),
+        #     is_show = lambda d: np.where(d['action'] == 'show', 1, 0)
+        # )
