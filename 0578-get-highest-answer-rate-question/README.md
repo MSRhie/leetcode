@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/get-highest-answer-rate-question/">578. Get Highest Answer Rate Question</a></h2><h3>Medium</h3><hr><p>Table: <code>SurveyLog</code></p>
+<h2><a href="https://leetcode.com/problems/get-highest-answer-rate-question">578. Get Highest Answer Rate Question</a></h2><h3>Medium</h3><hr><p>Table: <code>SurveyLog</code></p>
 
 <pre>
 +-------------+------+
