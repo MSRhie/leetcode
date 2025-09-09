@@ -11,7 +11,7 @@ def count_students(student: pd.DataFrame, department: pd.DataFrame) -> pd.DataFr
     result = (
         department
         .merge(student_count, on='dept_id', how='outer')
-        .fillna(0)
+        .assign(student_number = lambda d: d['student_number'].fillna(0))
         .drop(['dept_id'], axis=1)
         .sort_values(['student_number', 'dept_name'], ascending=[False, True])
     )
