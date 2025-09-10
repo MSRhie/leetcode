@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/second-degree-follower/?envType=problem-list-v2&envId=2sajt505">614. Second Degree Follower</a></h2><h3>Medium</h3><hr><p>Table: <code>Follow</code></p>
+<h2><a href="https://leetcode.com/problems/second-degree-follower">614. Second Degree Follower</a></h2><h3>Medium</h3><hr><p>Table: <code>Follow</code></p>
 
 <pre>
 +-------------+---------+
