@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/unpopular-books/?envType=problem-list-v2&envId=2sajt505">1098. Unpopular Books</a></h2><h3>Medium</h3><hr><p>Table: <code>Books</code></p>
+<h2><a href="https://leetcode.com/problems/unpopular-books">1098. Unpopular Books</a></h2><h3>Medium</h3><hr><p>Table: <code>Books</code></p>
 
 <pre>
 +----------------+---------+
