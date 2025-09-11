@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/project-employees-iii/?envType=problem-list-v2&envId=2sajt505">1077. Project Employees III</a></h2><h3>Medium</h3><hr><p>Table: <code>Project</code></p>
+<h2><a href="https://leetcode.com/problems/project-employees-iii">1077. Project Employees III</a></h2><h3>Medium</h3><hr><p>Table: <code>Project</code></p>
 
 <pre>
 +-------------+---------+
