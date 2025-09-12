@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/new-users-daily-count/">1107. New Users Daily Count</a></h2><h3>Medium</h3><hr><p>Table: <code>Traffic</code></p>
+<h2><a href="https://leetcode.com/problems/new-users-daily-count/?envType=problem-list-v2&envId=2sajt505">1107. New Users Daily Count</a></h2><h3>Medium</h3><hr><p>Table: <code>Traffic</code></p>
 
 <pre>
 +---------------+---------+
