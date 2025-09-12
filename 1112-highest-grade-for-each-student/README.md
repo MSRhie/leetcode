@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/highest-grade-for-each-student/?envType=problem-list-v2&envId=2sajt505">1112. Highest Grade For Each Student</a></h2><h3>Medium</h3><hr><p>Table: <code>Enrollments</code></p>
+<h2><a href="https://leetcode.com/problems/highest-grade-for-each-student">1112. Highest Grade For Each Student</a></h2><h3>Medium</h3><hr><p>Table: <code>Enrollments</code></p>
 
 <pre>
 +---------------+---------+
