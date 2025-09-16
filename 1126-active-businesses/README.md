@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/active-businesses/?envType=problem-list-v2&envId=2sajt505">1126. Active Businesses</a></h2><h3>Medium</h3><hr><p>Table: <code>Events</code></p>
+<h2><a href="https://leetcode.com/problems/active-businesses">1126. Active Businesses</a></h2><h3>Medium</h3><hr><p>Table: <code>Events</code></p>
 
 <pre>
 +---------------+---------+
