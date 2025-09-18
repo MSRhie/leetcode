@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/team-scores-in-football-tournament/?envType=problem-list-v2&envId=2sajt505">1212. Team Scores in Football Tournament</a></h2><h3>Medium</h3><hr><p>Table: <code>Teams</code></p>
+<h2><a href="https://leetcode.com/problems/team-scores-in-football-tournament">1212. Team Scores in Football Tournament</a></h2><h3>Medium</h3><hr><p>Table: <code>Teams</code></p>
 
 <pre>
 +---------------+----------+
