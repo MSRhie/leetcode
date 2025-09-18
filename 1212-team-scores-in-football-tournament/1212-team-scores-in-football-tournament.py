@@ -2,6 +2,7 @@ import pandas as pd
 
 def team_scores(teams: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
 
+    # score 생성 #
     score_match = (
         matches
         .assign(
@@ -11,6 +12,7 @@ def team_scores(teams: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
         )
     )
 
+    # host score 생성 #
     host_team = (
         score_match
         .groupby('host_team', as_index=False)
@@ -20,6 +22,7 @@ def team_scores(teams: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
         )
     )
 
+    # guest score 생성 #
     guest_team = (
         score_match
         .groupby('guest_team', as_index=False)
@@ -29,12 +32,14 @@ def team_scores(teams: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
         )
     )
 
+    # 키 두개일때, 반드시 키 하나로 통일 #
     team_list = (
         pd.concat([matches['host_team'], matches['guest_team']])
         .drop_duplicates()
         .reset_index(name='team_id')
     )
 
+    # host, guest 결합 #
     sum_score = (
         team_list
         .merge(guest_team, left_on='team_id', right_on='guest_team', how='left')
@@ -43,6 +48,7 @@ def team_scores(teams: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
         .assign(num_points = lambda d: sum([d['sum_win_x'], d['sum_draw_x'], d['sum_win_y'], d['sum_draw_y']]))
     )
 
+    # 후처리 #
     result = (
         teams
         .merge(sum_score[['team_id', 'num_points']], on='team_id', how='left')
