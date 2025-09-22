@@ -10,29 +10,30 @@ def find_reporting_people(employees: pd.DataFrame) -> pd.DataFrame:
         .drop_duplicates()[['employee_id']]
     )
 
-    boss_indirect_id_1 = (
-        employees[['employee_id', 'manager_id']]
-        .merge(boss_direct_id, left_on='manager_id', right_on='employee_id', how='inner')[['employee_id_x']]
-        .rename(columns={'employee_id_x': 'employee_id'})
-        .drop_duplicates()
-    )
+    indirect_list = []
 
-    boss_indirect_id_2 = (
-        employees[['employee_id', 'manager_id']]
-        .merge(boss_indirect_id_1, left_on='manager_id', right_on='employee_id', how='inner')[['employee_id_x']]
-        .rename(columns={'employee_id_x': 'employee_id'})
-        .drop_duplicates()
-    )
+    for i in range(3) :
+        
+        if i==0 :
+            df = (
+                    employees[['employee_id', 'manager_id']]
+                    .merge(boss_direct_id, left_on='manager_id', right_on='employee_id', how='inner')[['employee_id_x']]
+                    .rename(columns={'employee_id_x': 'employee_id'})
+                    .drop_duplicates()
+                )
 
-    boss_indirect_id_3 = (
-        employees[['employee_id', 'manager_id']]
-        .merge(boss_indirect_id_2, left_on='manager_id', right_on='employee_id', how='inner')[['employee_id_x']]
-        .rename(columns={'employee_id_x': 'employee_id'})
-        .drop_duplicates()
-    )
+        elif i>=1 :
+            before_df = indirect_list[i-1]
+            df = (
+                    employees[['employee_id', 'manager_id']]
+                    .merge(before_df, left_on='manager_id', right_on='employee_id', how='inner')[['employee_id_x']]
+                    .rename(columns={'employee_id_x': 'employee_id'})
+                    .drop_duplicates()
+                )
+        indirect_list.append(df)
 
     result = (
-        pd.concat([boss_direct_id, boss_indirect_id_1, boss_indirect_id_2, boss_indirect_id_3])
+        pd.concat([boss_direct_id]+indirect_list)
         .drop_duplicates()
     )
 
