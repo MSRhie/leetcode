@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/activity-participants/?envType=problem-list-v2&envId=2sajt505">1355. Activity Participants</a></h2><h3>Medium</h3><hr><p>Table: <code>Friends</code></p>
+<h2><a href="https://leetcode.com/problems/activity-participants">1355. Activity Participants</a></h2><h3>Medium</h3><hr><p>Table: <code>Friends</code></p>
 
 <pre>
 +---------------+---------+
