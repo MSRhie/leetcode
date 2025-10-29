@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/active-users/?envType=problem-list-v2&envId=2sajt505">1454. Active Users</a></h2><h3>Medium</h3><hr><p>Table: <code>Accounts</code></p>
+<h2><a href="https://leetcode.com/problems/active-users">1454. Active Users</a></h2><h3>Medium</h3><hr><p>Table: <code>Accounts</code></p>
 
 <pre>
 +---------------+---------+
