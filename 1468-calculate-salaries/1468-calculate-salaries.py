@@ -21,7 +21,7 @@ import pandas as pd
 #     return result
 
 
-    
+# Leetcode의 Round 에러때문에 아래 코드로 대체하여 실행. 답은 같음
 def calculate_salaries(salaries: pd.DataFrame) -> pd.DataFrame:
     
     # Find max salary for all companies 
