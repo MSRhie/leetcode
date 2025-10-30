@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/calculate-salaries/?envType=problem-list-v2&envId=2sajt505">1468. Calculate Salaries</a></h2><h3>Medium</h3><hr><p>Table <code>Salaries</code>:</p>
+<h2><a href="https://leetcode.com/problems/calculate-salaries">1468. Calculate Salaries</a></h2><h3>Medium</h3><hr><p>Table <code>Salaries</code>:</p>
 
 <pre>
 +---------------+---------+
