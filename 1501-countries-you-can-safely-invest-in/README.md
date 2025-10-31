@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/countries-you-can-safely-invest-in/?envType=problem-list-v2&envId=2sajt505">1501. Countries You Can Safely Invest In</a></h2><h3>Medium</h3><hr><p>Table <code>Person</code>:</p>
+<h2><a href="https://leetcode.com/problems/countries-you-can-safely-invest-in">1501. Countries You Can Safely Invest In</a></h2><h3>Medium</h3><hr><p>Table <code>Person</code>:</p>
 
 <pre>
 +----------------+---------+
