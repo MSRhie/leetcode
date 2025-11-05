@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/find-the-missing-ids/?envType=problem-list-v2&envId=2sajt505">1613. Find the Missing IDs</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
+<h2><a href="https://leetcode.com/problems/find-the-missing-ids">1613. Find the Missing IDs</a></h2><h3>Medium</h3><hr><p>Table: <code>Customers</code></p>
 
 <pre>
 +---------------+---------+
