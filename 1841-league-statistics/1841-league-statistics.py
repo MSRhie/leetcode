@@ -39,7 +39,7 @@ def league_statistics(teams: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFram
                             'away_score': 'score',
                             'home_team_goals': 'goals_against',
                             'away_team_goals': 'goals_for'
-                            })
+                            }) # TEAM KEY관점으로 변수이름 바꿔주는게 포인트 
     )
 
     reuslt = (
