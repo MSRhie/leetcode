@@ -24,7 +24,7 @@ def suspicious_bank_accounts(accounts: pd.DataFrame, transactions: pd.DataFrame)
                 (
                 (d.groupby(['account_id'])['months'].shift(1) == (d['months']-1)) & # (1)
                 (d['_flag_exceed'] == 1) & (d.groupby(['account_id'])['_flag_exceed'].shift(1) == 1)# (2)
-                ), 1, 0) # (1)account_id 별로 날짜가 연속일때 (2)금액이 초과된 경우가 전날과, 현재일때 1 그외 0 
+                ), 1, 0) # (1)account_id 별로 날짜가 연속일때 (2)금액이 현재도 초과되며, 그 전날도 초과된 경우 1 그외 0 
             )
         .query('_flag_consecutive_exceed==1') # 필터
         .loc[:][['account_id']]
