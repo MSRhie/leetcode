@@ -14,6 +14,7 @@ WITH exclusive_salary AS (
     FROM Employees
     GROUP BY salary
     HAVING cnt_salary > 1
+# 조건 2)
 ), ranking_df AS (
     SELECT
         E.*
