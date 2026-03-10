@@ -11,4 +11,5 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- | ------- |
 | [1867-orders-with-maximum-quantity-above-average](https://github.com/MSRhie/leetcode/tree/main/1867-orders-with-maximum-quantity-above-average/) | Medium |
 | [1875-group-employees-of-the-same-salary](https://github.com/MSRhie/leetcode/tree/main/1875-group-employees-of-the-same-salary/) | Medium |
+| [1949-strong-friendship](https://github.com/MSRhie/leetcode/tree/main/1949-strong-friendship/) | Medium |
 <!---LeetCode Topics End-->
